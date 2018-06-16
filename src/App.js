@@ -30,6 +30,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="rainbow">#config surface PC</h1>
           <p>having a good day</p>
+          <p>Good</p>
         </header>
         <p>{this.state.imageUrl}</p>
         <img src={this.state.imageUrl}/>
