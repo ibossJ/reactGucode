@@ -28,7 +28,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="rainbow">#config surface PC</h1>
+          <h1 className="rainbow">#config surface PC 555</h1>
         </header>
         <p>{this.state.imageUrl}</p>
         <img src={this.state.imageUrl}/>
