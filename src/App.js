@@ -4,50 +4,39 @@ import './App.css';
 
 class App extends Component {
 
-
     state = {
         imageUrl : ''
     }
 
-  componentDidMount(){
+    componentDidMount(){
 
-  
+        fetch('https://api.giphy.com/v1/gifs/random?api_key=eRl4w3CwAnHEAhGooyCKWykXws4xARiY&q=spiderman&limit=25&offset=0&rating=G&lang=en')
+        .then(res => res.json())
+        .then(json => json.data.image_url)
+        .then((imageUrl) => {
 
-          fetch('https://api.giphy.com/v1/gifs/random?api_key=eRl4w3CwAnHEAhGooyCKWykXws4xARiY&q=spiderman&limit=25&offset=0&rating=G&lang=en')
-              .then(res => res.json())
-              .then(json => json.data.image_url)
-              .then((imageUrl) => {
+            this.setState({
+                imageUrl: imageUrl
+            })
+            
+        })
 
-                  this.setState({
-                      imageUrl: imageUrl
-                  })
-                  
-                  setTimeout(() => {
-                      
-                  }, 3000);
-              })
+    }
 
-  }
+    render() {
+            return (
+                    <div className="App">
+                        <header className="App-header">
+                            <img src={logo} className="App-logo" alt="logo" />
+                            <h1 className="rainbow">#config surface PC</h1>
+                        </header>
+                        <p>Hello Wrold 555</p>
+                        <p>{this.state.imageUrl}</p>
+                        <img src={this.state.imageUrl}/>
 
-  
-
-
-
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="rainbow">#config surface PC</h1>
-          
-        </header>
-        <p>Hello Wrold 555</p>
-        <p>{this.state.imageUrl}</p>
-        <img src={this.state.imageUrl}/>
-
-      </div>
-    );
-  }
+                    </div>
+            );
+    }
 }
 
 export default App;
