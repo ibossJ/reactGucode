@@ -10,17 +10,27 @@ class App extends Component {
     }
 
   componentDidMount(){
-    fetch('https://api.giphy.com/v1/gifs/random?api_key=eRl4w3CwAnHEAhGooyCKWykXws4xARiY&q=spiderman&limit=25&offset=0&rating=G&lang=en')
-    .then( res => res.json())
-    .then(json => json.data.image_url )
-    .then( (imageUrl) =>{
-       
-        this.setState({
-            imageUrl: imageUrl
-        })
 
-    } )
+  
+
+          fetch('https://api.giphy.com/v1/gifs/random?api_key=eRl4w3CwAnHEAhGooyCKWykXws4xARiY&q=spiderman&limit=25&offset=0&rating=G&lang=en')
+              .then(res => res.json())
+              .then(json => json.data.image_url)
+              .then((imageUrl) => {
+
+                  this.setState({
+                      imageUrl: imageUrl
+                  })
+                  
+                  setTimeout(() => {
+                      
+                  }, 3000);
+              })
+
   }
+
+  
+
 
 
   render() {
@@ -41,3 +51,5 @@ class App extends Component {
 }
 
 export default App;
+
+
